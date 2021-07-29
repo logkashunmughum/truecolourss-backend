@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mymongodb:
+    image: mongo:latest
+    container_name: "mymongodb"
+    ports:
+      - 27017:27017
+      
+truecolours-microservice:
+  image : truecolours-microservice-docker
+  conatiner_name: truecolours-microservice-docker
+  ports:
+    - 8080:8080
+  links:
+    - mymongodb
+  
